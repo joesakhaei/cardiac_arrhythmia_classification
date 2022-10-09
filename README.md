@@ -9,7 +9,7 @@
 
     cd build_docker
     docker build -t test-docker .
-    docker run -p 8888:8888 test-docker
+    docker run test-docker
     
 ## Task3:
 Open Data_Analytics.ipynb
