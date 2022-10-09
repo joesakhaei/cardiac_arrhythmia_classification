@@ -34,24 +34,13 @@ df0.cache()
 
 
 
-## Count of Nulls
-null_counts = df0.select([
-    F.count(F.when(F.col(c).isNull(), c)).alias(c) for c in df0.columns
-]).toPandas().values.ravel()
-
-#print("\nMissing records:")
-#for i in range(len(colnames)):
-    #if (null_counts[i] > 0):
-        #print(colnames[i], " Null Count: ", null_counts[i])
-
-
 
 ## Count of Distinct Values
 print("\nCounting unique values in columns ...")
 unique_counts = df0.toPandas().nunique(axis=0).values
 monotonous_cols = [("col"+str(i+1)) for i,c in enumerate(unique_counts) if c < 2]
 print("Columns to Drop due to lack of any variation:")
-print(monotonous_cols)
+# print(monotonous_cols)
  
         
 ##
