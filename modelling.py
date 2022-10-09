@@ -30,7 +30,7 @@ colnames = ["col" + str(c) for c in range(1, 280)] + ["target"]
 schema = " DOUBLE, ".join(colnames) + " INT"
 
 
-df0 = spark.read.csv("source/arrhythmia.data", schema=schema, inferSchema=False, header=False, nullValue="?")
+df0 = spark.read.csv("build_docker/arrhythmia.data", schema=schema, inferSchema=False, header=False, nullValue="?")
 df0.cache()
 
 
